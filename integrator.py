@@ -1,6 +1,7 @@
 import numpy as np
 
 from grad_cam import grad_cam
+from load_model import model_fun
 from preprocess_img import preprocess
 
 
