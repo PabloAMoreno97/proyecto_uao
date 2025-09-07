@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 from keras import backend as K
 
+from load_model import model_fun
 from preprocess_img import preprocess
 
 
