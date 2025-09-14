@@ -135,3 +135,11 @@ data/
 # Archivos de sistema (Windows / macOS)
 .DS_Store
 Thumbs.db
+
+# Carpetas de salida del proyecto
+proyecto_uao/historial/
+proyecto_uao/reportes/
+
+# Archivos generados en pruebas
+*.csv
+*.pdf
