@@ -9,7 +9,7 @@ from tkinter import *
 from tkinter import ttk, font, filedialog
 from tkinter.messagebox import askokcancel, showinfo, WARNING
 
-from models.integrator import predict
+from models.predict_model import predict
 from data.read_img import read_dicom_file
 
 tf.compat.v1.disable_eager_execution()
