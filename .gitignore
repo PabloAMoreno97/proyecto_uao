@@ -109,7 +109,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-neumonia-env
+neumonia-env/
 
 # Spyder project settings
 .spyderproject
@@ -130,7 +130,7 @@ dmypy.json
 .pyre/
 
 # modelo
-modelo
+conv_MLP_84.h5
 
 # data
-data
+/data

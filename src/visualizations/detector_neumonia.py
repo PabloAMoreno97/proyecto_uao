@@ -9,8 +9,8 @@ from tkinter import *
 from tkinter import ttk, font, filedialog
 from tkinter.messagebox import askokcancel, showinfo, WARNING
 
-from integrator import predict
-from read_img import read_dicom_file
+from models.integrator import predict
+from data.read_img import read_dicom_file
 
 tf.compat.v1.disable_eager_execution()
 tf.compat.v1.experimental.output_all_intermediates(True)

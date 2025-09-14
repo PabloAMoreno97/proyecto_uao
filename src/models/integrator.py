@@ -1,8 +1,8 @@
 import numpy as np
 
-from grad_cam import grad_cam
-from load_model import model_fun
-from preprocess_img import preprocess
+from data.grad_cam import grad_cam
+from src.models.load_model import model_fun
+from data.preprocess_img import preprocess
 
 
 def predict(array):
