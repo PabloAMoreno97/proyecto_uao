@@ -1,0 +1,14 @@
+pyautogui
+pillow
+tkcap
+pydicom
+img2pdf
+opencv_python
+matplotlib
+pandas
+python-xlib
+pytest
+tensorflow
+keras
+numpy
+h5py
