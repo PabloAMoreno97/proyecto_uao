@@ -1,0 +1,18 @@
+name: pneumonia-detector
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.8
+  - pip
+  - pip:
+    - PyAutoGUI==0.9.54
+    - pillow==11.3.0
+    - tkcap==0.0.4
+    - pydicom==3.0.1
+    - img2pdf==0.6.1
+    - opencv-python==4.12.0.88
+    - matplotlib==3.10.6
+    - pandas==2.3.2
+    - tensorflow==2.20.0
+    - python-xlib==0.33
