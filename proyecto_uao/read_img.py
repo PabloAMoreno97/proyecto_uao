@@ -28,7 +28,7 @@ def read_jpg_file(path):
 
 
 def read_dicom_file(path):
-    img = dicom.read_file(path)
+    img = dicom.dcmread(path)
     img_array = img.pixel_array
     img2show = Image.fromarray(img_array)
     img2 = img_array.astype(float)
