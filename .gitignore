@@ -104,6 +104,7 @@ ENV/
 env.bak/
 venv.bak/
 neumonia-env
+venv
 
 # Spyder / Rope
 .spyderproject
@@ -125,8 +126,7 @@ WilhemNet86.h5
 *.h5
 *.hdf5
 *.ckpt
-modelo/
-data/
+/data
 *.dcm
 *.png
 *.jpg

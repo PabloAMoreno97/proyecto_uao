@@ -1,5 +1,7 @@
-from proyecto_uao.load_model import model_fun
 import pytest
+
+from src.models.load_model import model_fun
+
 
 def test_model_fun_loads_or_none():
     try:

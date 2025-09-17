@@ -1,22 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import os
+import csv
+import datetime
 import tkinter as tk
 from tkinter import ttk, font, filedialog
 from tkinter.messagebox import askokcancel, showinfo, WARNING
 
-import os
-import csv
-from PIL import Image, ImageTk
 import img2pdf
-import numpy as np
-import cv2
-import pydicom
-import datetime
+from PIL import Image, ImageTk
 
 # Importamos las funciones depuradas
-from src.integrator import predict_pneumonia
-from src.read_img import read_dicom_file
+from models.integrator import predict_neumonia
+from data.read_img import read_dicom_file
+
 
 class App:
     def __init__(self):
@@ -125,7 +123,7 @@ class App:
         self.result_text.insert(tk.END, "Cargando...")
         self.root.update_idletasks()
         
-        self.result_label, self.probability, heatmap_array = predict_pneumonia(self.filepath)
+        self.result_label, self.probability, heatmap_array = predict_neumonia(self.filepath)
         
         self.result_text.delete(1.0, tk.END)
         self.proba_text.delete(1.0, tk.END)
@@ -149,14 +147,14 @@ class App:
             showinfo(title="Guardar", message="Primero debe realizar una predicción.")
             return
 
-        # Creamos la carpeta 'historial' si no existe
-        if not os.path.exists("historial"):
-            os.makedirs("historial")
+        # Creamos la carpeta 'historic' si no existe
+        if not os.path.exists("reports/historic"):
+            os.makedirs("reports/historic")
 
         # Generamos un nombre de archivo único
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
         filename = f"diagnostico_{self.patient_id.get()}_{timestamp}.csv"
-        filepath = os.path.join("historial", filename)
+        filepath = os.path.join("reports/historic", filename)
 
         with open(filepath, "a", newline="") as csvfile:
             writer = csv.writer(csvfile, delimiter=",")
@@ -170,14 +168,14 @@ class App:
             return
             
         try:
-            # Creamos la carpeta 'reportes' si no existe
-            if not os.path.exists("reportes"):
-                os.makedirs("reportes")
+            # Creamos la carpeta 'reports' si no existe
+            if not os.path.exists("reports"):
+                os.makedirs("reports")
 
             # Generamos un nombre de archivo único para el PDF
             timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
             pdf_filename = f"reporte_{self.patient_id.get()}_{timestamp}.pdf"
-            pdf_path = os.path.join("reportes", pdf_filename)
+            pdf_path = os.path.join("reports", pdf_filename)
             
             # La captura de pantalla es de la ventana completa
             import pyautogui

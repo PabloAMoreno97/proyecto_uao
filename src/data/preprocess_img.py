@@ -5,19 +5,16 @@ import numpy as np
 def preprocess(array):
     """
     Preprocesa una imagen para el modelo de detección de neumonía.
-
     Pasos:
     1. Redimensiona la imagen a 512x512 píxeles.
     2. Convierte a escala de grises.
     3. Aplica ecualización adaptativa de histograma (CLAHE).
     4. Normaliza los valores a rango [0,1].
     5. Expande dimensiones para que sea compatible con TensorFlow/Keras.
-
     Parámetros
     ----------
     array : numpy.ndarray
         Imagen de entrada cargada con OpenCV.
-
     Retorna
     -------
     numpy.ndarray

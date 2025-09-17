@@ -1,10 +1,9 @@
-import tensorflow as tf
-import numpy as np
 import cv2
-from tensorflow.keras import backend as K
+import numpy as np
+import tensorflow as tf
 
-from src.preprocess_img import preprocess
-from src.load_model import model_fun
+from data.preprocess_img import preprocess
+from models.load_model import model_fun
 
 
 def grad_cam(array):
