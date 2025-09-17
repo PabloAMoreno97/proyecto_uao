@@ -22,8 +22,15 @@ def read_jpg_file(path):
     img_array = np.asarray(img)
     img2show = Image.fromarray(img_array)
     img2 = img_array.astype(float)
-    img2 = (np.maximum(img2, 0) / img2.max()) * 255.0
+    max_val = img2.max()
+
+    if max_val > 0:
+        img2 = (np.maximum(img2, 0) / max_val) * 255.0
+    else:
+        img2 = np.zeros_like(img2)
+
     img2 = np.uint8(img2)
+    
     return img2, img2show
 
 
