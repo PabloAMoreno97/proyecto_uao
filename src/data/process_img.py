@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import csv
 
 import argparse
-import csv
-import tensorflow as tf
-from integrator import predict
+from models.integrator import predict_neumonia
 from read_img import read_dicom_file
 
 # Deshabilitar la ejecución ávida para compatibilidad con TensorFlow 1.x
@@ -25,7 +24,7 @@ def process_image(filepath):
         array, _ = read_dicom_file(filepath)
         
         # Realizar la predicción
-        label, proba, heatmap = predict(array)
+        label, proba, heatmap = predict_neumonia(array)
         
         # Guardar el resultado en un archivo CSV
         with open("historial.csv", "a", newline="") as csvfile:

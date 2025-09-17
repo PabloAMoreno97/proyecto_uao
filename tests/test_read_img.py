@@ -1,5 +1,5 @@
-import os
-from proyecto_uao.read_img import read_jpg_file
+from src.data.read_img import read_jpg_file
+
 
 def test_read_jpg_file(tmp_path):
     import numpy as np, cv2

@@ -1,7 +1,8 @@
+import cv2
+
 import pydicom
 import numpy as np
-import cv2  # Agregado
-from PIL import Image  # Agregado
+from PIL import Image
 
 
 def read_jpg_file(path):

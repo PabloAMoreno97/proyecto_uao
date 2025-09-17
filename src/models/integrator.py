@@ -1,15 +1,12 @@
-import os
 import numpy as np
-import pydicom
 
-# Importamos las funciones individuales
-from src.preprocess_img import preprocess
-from src.load_model import model_fun
-from src.grad_cam import grad_cam
-from src.read_img import read_dicom_file
+from data.grad_cam import grad_cam
+from models.load_model import model_fun
+from data.read_img import read_dicom_file
+from data.preprocess_img import preprocess
 
 
-def predict_pneumonia(filepath):
+def predict_neumonia(filepath):
     """
     Función principal que integra el flujo completo:
     1. Lee la imagen.
@@ -31,7 +28,7 @@ def predict_pneumonia(filepath):
 
         # Realizar la predicción
         predictions = model.predict(preprocessed_array)
-        
+
         # Ahora, usamos np.argmax para obtener la clase con mayor probabilidad de las 3 salidas
         predicted_class_index = np.argmax(predictions[0])
         probabilities = predictions[0]
@@ -53,3 +50,4 @@ def predict_pneumonia(filepath):
     except Exception as e:
         print(f"❌ Ocurrió un error al procesar la imagen: {e}")
         return None, None, None
+    
