@@ -29,15 +29,16 @@ def grad_cam(array):
 
     # Se crea un modelo intermedio para obtener los tensores necesarios
     grad_model = tf.keras.Model(
-        [model.inputs], [model.get_layer("conv10_thisone").output, model.output]
+        [model.inputs], [model.get_layer("conv10_thisone").output,
+                         model.output]
     )
-    
+
     with tf.GradientTape() as tape:
         # Se obtiene el output como una lista y luego se extraen los tensores
         outputs = grad_model(img)
         last_conv_layer_output = outputs[0]
         predictions = outputs[1]
-        
+
         # Corregido: Se asegura que 'predictions' sea un tensor
         if isinstance(predictions, list):
             predictions = predictions[0]
@@ -45,19 +46,20 @@ def grad_cam(array):
         # Se obtiene el índice de la clase predicha para la imagen actual
         target_class_prediction = predictions[:, argmax]
 
-    # Calcular gradientes de la clase predicha con respecto al output de la última capa conv
+    # Calcular gradientes de la clase predicha con respecto al output
+    # de la última capa conv
     grads = tape.gradient(target_class_prediction, last_conv_layer_output)
-    
+
     # Se obtiene el gradiente promedio por cada canal de la última capa conv
     pooled_grads = tf.reduce_mean(grads, axis=(0, 1, 2))
-    
+
     # Se asegura que la capa de salida sea un tensor
     last_conv_layer_output = last_conv_layer_output[0]
 
     # Multiplicar cada canal por el gradiente promedio
     heatmap = last_conv_layer_output @ pooled_grads[..., tf.newaxis]
     heatmap = tf.squeeze(heatmap)
-    
+
     # Ahora sí se puede convertir a numpy porque es un tensor
     heatmap = heatmap.numpy()
 

@@ -1,7 +1,8 @@
-FROM python:3.10
+FROM python:3.13
 
+# Instalar dependencias del sistema
 RUN apt-get update -y && \
-    apt-get install -y python3-opencv
+    apt-get install -y python3-opencv python3-tk tk-dev
 
 WORKDIR /home/src
 
