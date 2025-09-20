@@ -21,17 +21,15 @@ Requerimientos necesarios para el funcionamiento:
 - Instale Anaconda para Windows siguiendo las siguientes instrucciones:
   https://docs.anaconda.com/anaconda/install/windows/
 
-- Abra Anaconda Prompt y ejecute las siguientes instrucciones:
+- Abra una terminal en la que se encuentre instalado Python y ejecute las siguientes instrucciones (Windows):
 
-  conda create -n tf tensorflow
+  python -m venv .venv
 
-  conda activate tf
-
-  cd UAO-Neumonia
+  .venv/scripts/activate
 
   pip install -r requirements.txt
 
-  python detector_neumonia.py
+  python src/app.py
 
 Uso de la Interfaz Gráfica:
 
@@ -46,7 +44,7 @@ Uso de la Interfaz Gráfica:
 
 ## Arquitectura de archivos propuesta.
 
-## detector_neumonia.py
+## app.py
 
 Contiene el diseño de la interfaz gráfica utilizando Tkinter.
 
@@ -73,7 +71,7 @@ Script que recibe el arreglo proveniento de read_img.py, realiza las siguientes 
 
 ## load_model.py
 
-Script que lee el archivo binario del modelo de red neuronal convolucional previamente entrenado llamado 'WilhemNet86.h5'.
+Script que lee el archivo binario del modelo de red neuronal convolucional previamente entrenado llamado 'conv_MLP_84.h5'.
 
 ## grad_cam.py
 
