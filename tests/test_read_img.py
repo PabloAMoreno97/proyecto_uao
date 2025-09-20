@@ -1,8 +1,10 @@
+import cv2
+import numpy as np
+
 from src.data.read_img import read_jpg_file
 
 
 def test_read_jpg_file(tmp_path):
-    import numpy as np, cv2
     img = np.zeros((100, 100, 3), dtype=np.uint8)
     file = tmp_path / "dummy.jpg"
     cv2.imwrite(str(file), img)

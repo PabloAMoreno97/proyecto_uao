@@ -9,9 +9,9 @@ def model_fun():
     """
     try:
         # Volvemos a usar el modelo que ha demostrado ser funcional
-        model_path = os.path.join('src/models', 'conv_MLP_84_converted.h5')
+        model_path = os.path.join('src/models', 'conv_MLP_84.h5')
         print(f"✅ Modelo cargado correctamente desde: {model_path}")
-        return tf.keras.models.load_model(model_path)
+        return tf.keras.models.load_model(model_path, compile=False)
     except Exception as e:
         print(f"❌ Error al cargar el modelo: {e}")
         return None
