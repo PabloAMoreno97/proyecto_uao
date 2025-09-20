@@ -1,4 +1,10 @@
-## Hola! Bienvenido a la herramienta para la detección rápida de neumonía
+## Bienvenido a la herramienta para la detección rápida de neumonía
+
+### Proyecto realizado por: 
+- Juan Restrepo - 22501886
+- Leonardo Collazos - 22500409
+- María Niño - 22501951
+- Pablo Moreno - 22500691
 
 Deep Learning aplicado en el procesamiento de imágenes radiográficas de tórax en formato DICOM con el fin de clasificarlas en 3 categorías diferentes:
 
