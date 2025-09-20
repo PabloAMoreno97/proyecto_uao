@@ -29,7 +29,8 @@ def predict_neumonia(filepath):
         # Realizar la predicción
         predictions = model.predict(preprocessed_array)
 
-        # Ahora, usamos np.argmax para obtener la clase con mayor probabilidad de las 3 salidas
+        # Ahora, usamos np.argmax para obtener la clase con mayor
+        # probabilidad de las 3 salidas
         predicted_class_index = np.argmax(predictions[0])
         probabilities = predictions[0]
 
@@ -50,4 +51,3 @@ def predict_neumonia(filepath):
     except Exception as e:
         print(f"❌ Ocurrió un error al procesar la imagen: {e}")
         return None, None, None
-    

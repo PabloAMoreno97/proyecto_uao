@@ -33,7 +33,8 @@ def preprocess(array):
     # Normalizar a [0,1]
     array = array / 255.0
 
-    # Expandir dimensiones para que el modelo lo acepte (batch, alto, ancho, canales)
+    # Expandir dimensiones para que el modelo lo acepte
+    # (batch, alto, ancho, canales)
     array = np.expand_dims(array, axis=-1)
     array = np.expand_dims(array, axis=0)
 
